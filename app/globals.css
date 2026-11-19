@@ -218,15 +218,45 @@ h1 em, h2 em { color: var(--gold); font-family: Georgia, "Times New Roman", seri
 .whatsapp-float { padding: 15px 20px; }
 
 .hero { isolation: isolate; }
-.hero-image { opacity: .42; }
+.hero-image { 
+  position: absolute; 
+  inset: 0; 
+   background-image: 
+    linear-gradient(
+            90deg,
+            rgba(0, 0, 0, 0.78) 0%,
+            rgba(0, 0, 0, 0.45) 38%,
+            rgba(0, 0, 0, 0.12) 75%,
+            rgba(0, 0, 0, 0.18) 100%
+        ),
+    url("/images/rankline-driving-school-fleet.png"); 
+  background-position: center; 
+  background-size: cover; 
+  transform: scale(1.02); 
+}
+ 
 .hero-shade { background: linear-gradient(90deg, rgba(8,8,8,.96) 0%, rgba(8,8,8,.84) 42%, rgba(8,8,8,.35) 100%), linear-gradient(0deg, rgba(8,8,8,.52), transparent 40%); }
 .hero-content { width: min(1160px, calc(100% - 48px)); max-width: 1160px; margin-left: auto; margin-right: auto; }
 .hero h1 { max-width: 590px; font-size: clamp(48px, 5.6vw, 72px); }
 .hero-description { max-width: 420px; }
-.hero-car-wrap { position: absolute; z-index: 1; width: min(47vw, 590px); height: 430px; right: max(4vw, calc((100vw - 1240px) / 2)); top: 50%; transform: translateY(-43%); perspective: 1100px; display: flex; align-items: center; justify-content: center; }
+/* /* .hero-car-wrap { position: absolute; z-index: 1; width: min(47vw, 590px); height: 430px; right: max(4vw, calc((100vw - 1240px) / 2)); top: 50%; transform: translateY(-43%); perspective: 1100px; display: flex; align-items: center; justify-content: center; }
 .hero-car-card { position: relative; width: 100%; height: 340px; overflow: hidden; border: 1px solid rgba(255,255,255,.22); border-radius: 34px; background: #171717; box-shadow: 0 35px 90px rgba(0,0,0,.38); transform-style: preserve-3d; cursor: grab; }
-.hero-car-card:active { cursor: grabbing; }
-.hero-car-photo { position: absolute; inset: 0; background-image: url("https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1500&q=90"); background-position: center; background-size: cover; transform: scale(1.04); }
+.hero-car-card:active { cursor: grabbing; } */
+/* .hero-car-photo { 
+  position: absolute; 
+  inset: 0; 
+  /* background-image: 
+    linear-gradient(
+            90deg,
+            rgba(0, 0, 0, 0.78) 0%,
+            rgba(0, 0, 0, 0.45) 38%,
+            rgba(0, 0, 0, 0.12) 75%,
+            rgba(0, 0, 0, 0.18) 100%
+        ),
+    url("/images/rankline-driving-school-fleet.png"); 
+  background-position: center; 
+  background-size: cover; 
+  transform: scale(1.02); } */ */
 .hero-car-glow { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,.03) 35%, rgba(0,0,0,.72) 100%), radial-gradient(circle at 70% 20%, rgba(224,182,95,.22), transparent 42%); pointer-events: none; }
 .hero-car-caption { position: absolute; left: 24px; right: 24px; bottom: 22px; display: flex; justify-content: space-between; color: white; font-size: 9px; font-weight: 700; letter-spacing: .18em; transform: translateZ(35px); }
 .hero-car-orbit { position: absolute; width: 390px; height: 390px; border: 1px solid rgba(224,182,95,.28); border-radius: 50%; pointer-events: none; }
@@ -238,7 +268,7 @@ h1 em, h2 em { color: var(--gold); font-family: Georgia, "Times New Roman", seri
   .hero-car-wrap { right: 2vw; width: 43vw; height: 340px; }
   .hero-car-card { height: 260px; }
   .hero-car-orbit { width: 290px; height: 290px; }
-  .hero-car-orbit-two { width: 350px; height: 350px; }
+  .hero-car-orbit-two { width: 350px; height: 350px; } */
   .hero h1 { max-width: 52vw; font-size: clamp(44px, 6vw, 64px); }
 }
 @media (max-width: 700px) {
