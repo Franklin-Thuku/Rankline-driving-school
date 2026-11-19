@@ -311,3 +311,255 @@ h1 em, h2 em { color: var(--gold); font-family: Georgia, "Times New Roman", seri
     inset: 0 35px auto 0;
   }
 }
+
+
+
+/* ==========================================
+   RANKLINE — PLAYFUL MOTION UPGRADE
+   ========================================== */
+
+/* Scroll reveal */
+.reveal,
+.reveal-left,
+.reveal-right,
+.reveal-scale {
+  opacity: 0;
+  filter: blur(4px);
+  transition:
+    opacity 0.85s cubic-bezier(.2,.7,.2,1),
+    transform 0.85s cubic-bezier(.2,.7,.2,1),
+    filter 0.85s ease;
+  will-change: transform, opacity;
+}
+
+.reveal {
+  transform: translateY(55px);
+}
+
+.reveal-left {
+  transform: translateX(-75px);
+}
+
+.reveal-right {
+  transform: translateX(75px);
+}
+
+.reveal-scale {
+  transform: scale(.82);
+}
+
+.reveal.is-visible,
+.reveal-left.is-visible,
+.reveal-right.is-visible,
+.reveal-scale.is-visible {
+  opacity: 1;
+  filter: blur(0);
+  transform: translate(0) scale(1);
+}
+
+/* Staggered entrances */
+.delay-1 { transition-delay: .12s; }
+.delay-2 { transition-delay: .24s; }
+.delay-3 { transition-delay: .36s; }
+.delay-4 { transition-delay: .48s; }
+.delay-5 { transition-delay: .60s; }
+
+/* Floating objects */
+.float {
+  animation: rankline-float 5s ease-in-out infinite;
+}
+
+.float-slow {
+  animation: rankline-float 8s ease-in-out infinite;
+}
+
+.float-fast {
+  animation: rankline-float 3.5s ease-in-out infinite;
+}
+
+@keyframes rankline-float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-16px);
+  }
+}
+
+/* Rotating image decoration */
+.rotate-image {
+  animation: rankline-rotate 18s linear infinite;
+  transform-origin: center;
+}
+
+@keyframes rankline-rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Playful photo tilt */
+.playful-image {
+  transition:
+    transform .8s cubic-bezier(.2,.8,.2,1),
+    border-radius .6s ease;
+  transform: rotate(-2deg);
+}
+
+.playful-image:hover {
+  transform: rotate(2deg) scale(1.035);
+}
+
+/* Image entrance */
+.image-reveal {
+  overflow: hidden;
+}
+
+.image-reveal img {
+  transform: scale(1.14);
+  transition: transform 1.2s cubic-bezier(.2,.7,.2,1);
+}
+
+.image-reveal.is-visible img {
+  transform: scale(1);
+}
+
+/* Cards that lift on hover */
+.interactive-card {
+  transition:
+    transform .4s cubic-bezier(.2,.8,.2,1),
+    box-shadow .4s ease;
+}
+
+.interactive-card:hover {
+  transform: translateY(-12px);
+  box-shadow: 0 25px 55px rgba(0,0,0,.13);
+}
+
+/* Animated button */
+.playful-button {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  transition:
+    transform .3s ease,
+    box-shadow .3s ease;
+}
+
+.playful-button::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(255,255,255,.15);
+  transform: translateX(-110%) skewX(-20deg);
+  transition: transform .6s ease;
+  z-index: -1;
+}
+
+.playful-button:hover::before {
+  transform: translateX(110%) skewX(-20deg);
+}
+
+.playful-button:hover {
+  transform: translateY(-3px);
+}
+
+.playful-button:active {
+  transform: scale(.96);
+}
+
+/* Moving accent line */
+.moving-line {
+  position: relative;
+  overflow: hidden;
+}
+
+.moving-line::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: -100%;
+  width: 100%;
+  height: 2px;
+  background: currentColor;
+  animation: line-travel 4s ease-in-out infinite;
+}
+
+@keyframes line-travel {
+  0% { left: -100%; }
+  50%, 100% { left: 100%; }
+}
+
+/* Marquee text */
+.rankline-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee-move 24s linear infinite;
+}
+
+.rankline-marquee:hover {
+  animation-play-state: paused;
+}
+
+@keyframes marquee-move {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+/* Subtle hero motion */
+.hero-content h1 {
+  animation: rankline-hero-enter 1s cubic-bezier(.2,.7,.2,1) both;
+}
+
+@keyframes rankline-hero-enter {
+  from {
+    opacity: 0;
+    transform: translateY(35px);
+    filter: blur(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+/* Floating badge pulse */
+.pulse-badge {
+  animation: badge-pulse 3s ease-in-out infinite;
+}
+
+@keyframes badge-pulse {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(202,164,80,.2);
+  }
+  50% {
+    transform: scale(1.04);
+    box-shadow: 0 0 0 12px rgba(202,164,80,0);
+  }
+}
+
+/* Reduced motion accessibility */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+  }
+
+  .reveal,
+  .reveal-left,
+  .reveal-right,
+  .reveal-scale {
+    opacity: 1;
+    filter: none;
+    transform: none;
+  }
+}
+
